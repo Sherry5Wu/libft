@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jingwu <jingwu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/29 11:53:04 by jingwu            #+#    #+#             */
-/*   Updated: 2024/04/30 12:25:59 by jingwu           ###   ########.fr       */
+/*   Created: 2024/04/29 14:50:18 by jingwu            #+#    #+#             */
+/*   Updated: 2024/04/29 14:51:28 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+/*
+    Description:
+    Iterates the list ’lst’ and applies the function ’f’ on
+   	the content of each node.
+
+    Parameters:
+    lst: The address of a pointer to a node.
+    f: The address of the function used to iterate on the list.
+*/
+
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (n == -2147483648)
-	{
-		ft_putstr_fd("-2147483648", fd);
+	if (!lst || !f)
 		return ;
-	}
-	if (n < 0)
+	while (lst)
 	{
-		ft_putchar_fd('-', fd);
-		n *= -1;
+		f(lst->content);
+		lst = lst->next;
 	}
-	if (n > 9)
-		ft_putnbr_fd((n / 10), fd);
-	ft_putchar_fd((n % 10 + '0'), fd);
 }

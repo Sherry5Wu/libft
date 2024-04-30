@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jingwu <jingwu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/29 11:53:04 by jingwu            #+#    #+#             */
-/*   Updated: 2024/04/30 12:25:59 by jingwu           ###   ########.fr       */
+/*   Created: 2024/04/29 13:52:11 by jingwu            #+#    #+#             */
+/*   Updated: 2024/04/29 13:56:23 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+/*
+// solution 1:
+t_list  *ft_lstlast(t_list *lst);
 {
-	if (n == -2147483648)
-	{
-		ft_putstr_fd("-2147483648", fd);
-		return ;
-	}
-	if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		n *= -1;
-	}
-	if (n > 9)
-		ft_putnbr_fd((n / 10), fd);
-	ft_putchar_fd((n % 10 + '0'), fd);
+    if (!lst)
+        return (NULL);
+    while (lst)
+    {
+        if (!lst->next)
+            return (lst);
+        lst = lst->next;
+    }
+}
+*/
+// solution 2
+
+t_list	*ft_lstlast(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

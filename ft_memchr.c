@@ -24,12 +24,11 @@
 
 void	*ft_memchr(const void *str, int c, size_t n)
 {
-	while (*(unsigned char *)str != '\0' && 0 < n)
+	while (n--)
 	{
 		if (*(unsigned char *)str == (unsigned char)c)
 			return ((void *)str);
 		str++;
-		n--;
 	}
 	return (NULL);
 }
