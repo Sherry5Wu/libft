@@ -15,6 +15,7 @@ int	ft_atoi(const char *str)
 {
 	int				sign;
 	long long int	integer;
+	long long int	check;
 
 	sign = 1;
 	integer = 0;
@@ -25,13 +26,12 @@ int	ft_atoi(const char *str)
 			sign = -1;
 	while (*str >= '0' && *str <= '9')
 	{
-		if (sign == -1 && (integer > 922337203685477580
-				|| (integer == 922337203685477580 && *(str + 1) > 8)))
+		check = integer * 10 + (*str - '0');
+		if ((check / 10) != integer && sign == -1)
 			return (0);
-		else if (integer > 922337203685477580
-			|| (integer == 922337203685477580 && *(str + 1) > 7))
+		if ((check / 10) != integer && sign == 1)
 			return (-1);
-		integer = integer * 10 + (*str - '0');
+		integer = check;
 		str++;
 	}
 	return (((int)integer) * sign);

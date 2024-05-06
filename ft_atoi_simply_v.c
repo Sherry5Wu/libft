@@ -6,33 +6,43 @@
 /*   By: jingwu <jingwu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 12:33:19 by jingwu            #+#    #+#             */
-/*   Updated: 2024/05/06 09:07:48 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/04/23 14:16:20 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 int	ft_atoi(const char *str)
 {
-	int				sign;
-	long long int	integer;
+	int	sign;
+	int	integer;
 
 	sign = 1;
 	integer = 0;
 	while ((*str >= 9 && *str <= 13) || *str == 32)
 		str++;
 	if (*str == '+' || *str == '-')
-		if (*str++ == '-')
+	{
+		if (*str == '-')
 			sign = -1;
+		str++;
+	}
 	while (*str >= '0' && *str <= '9')
 	{
-		if (sign == -1 && (integer > 922337203685477580
-				|| (integer == 922337203685477580 && *(str + 1) > 8)))
-			return (0);
-		else if (integer > 922337203685477580
-			|| (integer == 922337203685477580 && *(str + 1) > 7))
-			return (-1);
 		integer = integer * 10 + (*str - '0');
 		str++;
 	}
-	return (((int)integer) * sign);
+	return (integer * sign);
+}
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	const char	*str1 = "9223372036854775809";
+	const char	*str2 = "9223372036854775809";
+	
+	printf("str1=%d\n", ft_atoi(str1));
+	printf("str2=%d\n", atoi(str2));
+	return (0);
 }
