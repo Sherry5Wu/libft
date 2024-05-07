@@ -36,11 +36,11 @@ ${NAME}: ${OBJS}
 	@touch .bonus
 
 clean:
-	${RM} ${OBJS} ${OBJS_B} ${BONUS}
+	${RM} ${OBJS} ${OBJS_B}
 
 fclean:	clean
 	${RM} ${NAME} .bonus
 
 re:	fclean all
 
-.PHONY:		bouns all clean fclean re
+.PHONY:		bonus all clean fclean re
