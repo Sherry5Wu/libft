@@ -10,7 +10,7 @@ SRCS_B = ft_lstnew_bonus.c ft_lstadd_front_bonus.c 	ft_lstsize_bonus.c ft_lstlas
 
 OBJS   = ${SRCS:.c=.o}
 OBJS_B = ${SRCS_B:.c=.o}
-HEADER   = *.h
+HEADER   = libft.h
 
 AR     = ar rc
 RM     = rm -f
@@ -21,23 +21,25 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
 
 all: ${NAME}
+bonus: .bonus
 
 ${NAME}: ${OBJS}
 	${AR} ${NAME} $^
 	${LIB} ${NAME}
 
-.c.o:
+%.o: %.c
 	${CC} ${CFLAGS} -c -I ${HEADER} $< -o $@
 
-bonus: ${OBJS} ${OBJS_B}
+.bonus: ${OBJS} ${OBJS_B}
 	${AR} ${NAME} ${OBJS} ${OBJS_B}
 	${LIB} ${NAME}
+	@touch .bonus
 
 clean:
-	${RM} ${OBJS} ${OBJS_B}
+	${RM} ${OBJS} ${OBJS_B} ${BONUS}
 
 fclean:	clean
-	${RM} ${NAME}
+	${RM} ${NAME} .bonus
 
 re:	fclean all
 

@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 07:23:19 by jingwu            #+#    #+#             */
-/*   Updated: 2024/04/30 07:25:31 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/05/06 13:40:16 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -32,15 +32,18 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*newlst;
 	t_list	*tmpnode;
+	void	*l_content;
 
 	if (!lst || !f || !del)
 		return (NULL);
 	newlst = NULL;
 	while (lst)
 	{
-		tmpnode = ft_lstnew(f(lst->content));
+		l_content = f(lst->content);
+		tmpnode = ft_lstnew(l_content);
 		if (!tmpnode)
 		{
+			del(l_content);
 			ft_lstclear(&newlst, del);
 			return (NULL);
 		}
