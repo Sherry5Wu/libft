@@ -27,6 +27,10 @@ void	*ft_calloc(size_t nitems, size_t size)
 {
 	void	*address;
 
+	if (nitems == 0)
+		return (NULL);
+	if (size > SIZE_MAX / nitems)
+		return (NULL);
 	address = malloc(nitems * size);
 	if (address == NULL)
 		return (NULL);
