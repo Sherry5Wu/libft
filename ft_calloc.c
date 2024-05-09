@@ -6,7 +6,7 @@
 /*   By: jingwu <jingwu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 14:18:12 by jingwu            #+#    #+#             */
-/*   Updated: 2024/04/23 15:06:41 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/05/09 07:50:00 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -27,9 +27,7 @@ void	*ft_calloc(size_t nitems, size_t size)
 {
 	void	*address;
 
-	if (nitems == 0)
-		return (NULL);
-	if (size > SIZE_MAX / nitems)
+	if (nitems > 0 && size > 0 && (nitems * size) / nitems != size)
 		return (NULL);
 	address = malloc(nitems * size);
 	if (address == NULL)
