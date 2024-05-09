@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-long	nb_len(long nb)
+static long	nb_len(long nb)
 {
 	long	len;
 
@@ -31,7 +31,7 @@ long	nb_len(long nb)
 	return (len);
 }
 
-void	copy_nb(char *str, long nb, long len)
+static void	copy_nb(char *str, long nb, long len)
 {
 	if (nb == 0)
 	{
