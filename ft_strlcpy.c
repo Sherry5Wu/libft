@@ -15,7 +15,6 @@
 	DESCRIPTION :
 	The function ft_strlcpy copies up to size - 1 characters from the given
 	string src to the given string dst, nul-terminating the result.
-
 	Note : space for the terminating \0 character must be included in dstsize.
 
 	RETURN VALUE :

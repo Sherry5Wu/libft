@@ -26,12 +26,14 @@
 void	*ft_calloc(size_t nitems, size_t size)
 {
 	void	*address;
+	size_t	total;
 
-	if (nitems > 0 && size > 0 && (nitems * size) / nitems != size)
+	total = nitems * size;
+	if (nitems > 0 && size > 0 && total / nitems != size)
 		return (NULL);
-	address = malloc(nitems * size);
+	address = malloc(total);
 	if (address == NULL)
 		return (NULL);
-	ft_bzero(address, (nitems * size));
+	ft_bzero(address, (total));
 	return (address);
 }

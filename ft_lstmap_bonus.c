@@ -28,6 +28,12 @@
     The new list. NULL if the allocation fails.
 */
 
+static t_list	*clean_work(t_list	**str, void (*del)(void *))
+{
+	ft_lstclear(str, del);
+	return (NULL);
+}
+
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*newlst;
@@ -40,12 +46,13 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	while (lst)
 	{
 		l_content = f(lst->content);
+		if (!l_content)
+			return (clean_work(&newlst, del));
 		tmpnode = ft_lstnew(l_content);
 		if (!tmpnode)
 		{
 			del(l_content);
-			ft_lstclear(&newlst, del);
-			return (NULL);
+			return (clean_work(&newlst, del));
 		}
 		ft_lstadd_back(&newlst, tmpnode);
 		lst = lst->next;
