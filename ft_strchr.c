@@ -3,13 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jingwu <jingwu@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jingwu <jingwu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 13:20:36 by jingwu            #+#    #+#             */
-/*   Updated: 2024/04/30 13:51:26 by jingwu           ###   ########.fr       */
+/*   Updated: 2024/05/17 11:50:42 by jingwu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+
 
 /*
 	DESCRIPTION :
@@ -26,11 +26,13 @@ char	*ft_strchr(const char *str, int c)
 	size_t	i;
 
 	i = 0;
-	while (i < (ft_strlen(str) + 1))
+	while (str[i])
 	{
 		if (str[i] == (char)c)
 			return ((char *)str + i);
 		i++;
 	}
+	if ((char)c == '\0')
+		return ((char *)str + i);
 	return (NULL);
 }
