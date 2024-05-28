@@ -5,7 +5,7 @@ Your functions will have the same prototypes and implement the same behaviors as
 
 
 # Better To Check Before Push
-- If a function doesn't need include header file, then DOES NOT inducle. (eg, ft_bzero.c, ft_isascii.c)
+- If a function doesn't need include header file, then DOES NOT include. (eg, ft_bzero.c, ft_isascii.c)
 - Always check if your shcool header is correct or not in each .c file before push it to Git. Sometimes we will edit a new function in the copy of another function, in this case you need to remember to update the school header file to make sure the funciton name is matching correctly.
 - For the 'void * str' type of argements, pay attention to cast it into which type, 'char', 'unsigned char', or others.
 - Check the libft.h file, only include the necessary libraries. And make sure you know why you include the library, what it is for.
