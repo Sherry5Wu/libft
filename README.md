@@ -1,8 +1,33 @@
 # Libft
 
-This project is the very first project as a student at 42. You will need to recode a few functions of the C standard library as well as some other utility functions that you will use during your whole cursus.
-Your functions will have the same prototypes and implement the same behaviors as the originals. They must comply with the way they are defined in their man. The only difference will be their names. They will begin with the ’ft_’ prefix. For instance, strlen becomes ft_strlen.
+This project aims to build your own library, which need to recode a few functions of the C standard library as well as some other utility functions that you will use during your whole cursus.
 
+# How to Run?
+
+## Step 1: Clone the Project to local
+Copy the below command to your terminal
+```bash
+git clone https://github.com/Sherry5Wu/libft.git libft && cd libft
+```
+## Step 2: Make
+```bash
+Make bonus
+```
+This will generates "libft.a" library
+
+## Step 3: Start to use libft.a
+For example:
+```bash
+cc libft.h main/libft_main_1.c libft.a && ./a.out
+```
+After that command, you will see the results below:
+```bash
+the return of a =1
+the return of b =1
+the return of c =0
+the return of d =0
+```
+Edit the main file or change to your main file, then you can start to use all the functions in libft library.
 
 # Better To Check Before Push
 - If a function doesn't need include header file, then DOES NOT include. (eg, ft_bzero.c, ft_isascii.c)
