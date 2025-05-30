@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "../libft.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -57,7 +57,7 @@ int main()
     // for (int i = 0; i < 5; i++)
     // {
     //     ft_lstnew((void *)content[i]);
-    //     print_lst(lst); 
+    //     print_lst(lst);
     // }
     print_lst(ft_lstnew(NULL));
     return (0);

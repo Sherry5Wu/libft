@@ -1,7 +1,7 @@
-#include "libft.h"
+#include "../libft.h"
 #include <stdio.h>
 #include <unistd.h>
-#include <fcntl.h> 
+#include <fcntl.h>
 
 #if 0
 //ft_putchar_fd()

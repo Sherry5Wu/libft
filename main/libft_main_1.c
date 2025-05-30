@@ -1,9 +1,9 @@
-#include "libft.h"
+#include "../libft.h"
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
 
-#if 0
+#if 1
 //ft_isalpha, return 1 if the character is alpha; otherwise return 0;
 int main(void)
 {
@@ -96,7 +96,7 @@ int main(void)
     printf("system c -> %d\n", isascii(c));
     printf("Own d -> %d\n", ft_isascii(d));
     printf("system d -> %d\n", isascii(d));
-    
+
     return (0);
 }
 #endif
@@ -126,7 +126,7 @@ int main(void)
     printf("system d -> %d\n", isprint(d));
     printf("Own e -> %d\n", ft_isprint(e));
     printf("system e -> %d\n", isprint(e));
-    
+
     return (0);
 }
 #endif
@@ -137,7 +137,7 @@ int main(void)
     const char *str1;
     const char *str2;
     const char *str3;
-    
+
 
 
     str1 = "";
@@ -151,7 +151,7 @@ int main(void)
     printf("system str2= %zu\n", strlen(str2));
     printf("Own str3= %zu\n", ft_strlen(str3));
     printf("system str3= %zu\n", strlen(str3));
-    
+
     return (0);
 }
 #endif
@@ -169,7 +169,7 @@ int main(void)
     printf("Original str= %s\n", str1);
     printf("Own str= %s\n", ft_memset(str1, '&', 2));
     printf("system str= %s\n\n", memset(str2, '&', 2));
-    
+
     memset(arr1, 0, sizeof(arr1));
     printf("System: initialized arr=");
     for (i = 0; i < sizeof(arr1)/sizeof(arr1[0]); i++)
@@ -177,7 +177,7 @@ int main(void)
        printf("%d", arr1[i]);
     }
     printf("\n");
-    
+
     ft_memset(arr2, 0, sizeof(arr2));
     printf("Own: initialized arr=");
     for (i = 0; i < sizeof(arr2)/sizeof(arr2[0]); i++)
@@ -185,7 +185,7 @@ int main(void)
        printf("%d", arr2[i]);
     }
     printf("\n");
-    
+
     return (0);
 }
 #endif
@@ -204,7 +204,7 @@ int main(void)
     printf("Own str= %s\n", str1);
     bzero(str2, sizeof(str2));
     printf("system str= %s\n\n", str2);
-    
+
     bzero(arr1, sizeof(arr1));
     printf("System: initialized arr=");
     for (i = 0; i < sizeof(arr1)/sizeof(arr1[0]); i++)
@@ -221,7 +221,7 @@ int main(void)
        printf("%d", arr2[i]);
     }
     printf("\n");
-    
+
     return (0);
 }
 #endif
@@ -243,17 +243,17 @@ int main(void)
     printf("Own(copy all) dest= %s\n", dest);
     memcpy(dest1, src, ft_strlen(src)+1);
     printf("system(copy all) dest= %s\n\n", dest1);
-    
+
     ft_memcpy(dest2, src, 3);
     printf("Own(copy 3 chars) dest= %s\n", dest2);
     memcpy(dest3, src, 3);
     printf("system(copy 3 chars) dest= %s\n\n", dest3);
-    
+
     ft_memcpy(dest4, src, 0);
     printf("Own(copy 0 chars) dest= %s\n", dest4);
     memcpy(dest5, src, 0);
     printf("system(copy 0 chars) dest= %s\n\n", dest5);
-    
+
     return (0);
 }
 #endif
@@ -273,7 +273,7 @@ int main(void)
 
     printf("Own dest= %s\n", ft_memmove(dest, src1, 4));
     printf("system dest= %s\n\n", memmove(dest1, src2, 4));
- 
+
     return (0);
 }
 #endif
@@ -288,7 +288,7 @@ int main(void)
     int         size[4]= {0,2,8};
     size_t re_own, re_sys;
     int i,n;
-    
+
     printf("Original dest= %s\nsrc= %s\n\n", dest, src);
     for (i = 0; i < 3; i++)
     {
@@ -300,25 +300,25 @@ int main(void)
         strcpy(dest, "love");
         strcpy(dest1, "love");
     }
-    
+
 }
 #endif
 
-//#if 0
+#if 0
 // ft_strlcat, the return value is the initial length of dst + the length of src;
 int main(void)
 {
-    // char * src = (char *)"AAAAAAAAA";
-    // char dest[] = "B";
-    // char dest1[] = "B";
+    char * src = (char *)"AAAAAAAAA";
+    char dest[] = "B";
+    char dest1[] = "B";
     char    dest2[30], dest3[30];
     memset(dest2, 0, 30);
     memset(dest3, 0, 30);
-    // printf("Sys return=%zu, dest= %s\n", strlcat(dest1, src, 1), dest1);
-    // printf("Own return=%zu, dest= %s\n", ft_strlcat(dest, src, 1), dest);
+    printf("Sys return=%zu, dest= %s\n", strlcat(dest1, src, 1), dest1);
+    printf("Own return=%zu, dest= %s\n", ft_strlcat(dest, src, 1), dest);
 
     printf("Sys return=%zu, dest= %s\n", strlcat(dest2, "123",0), dest2);
     printf("Own return=%zu, dest= %s\n", ft_strlcat(dest3, "123", 0), dest3);
     return (0);
 }
-//#endif
+#endif
